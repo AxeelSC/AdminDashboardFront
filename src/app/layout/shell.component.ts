@@ -1,17 +1,24 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
+
+// Importa aquí tus componentes de Sidebar y Topbar reales si los tienes:
+import { AppSidebarComponent } from '../shared/atomic/organisms/app-sidebar/app-sidebar.component';
+import { AppTopbarComponent } from '../shared/atomic/organisms/app-topbar/app-topbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-shell',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, MatSidenavModule, AppSidebarComponent, AppTopbarComponent],
   template: `
     <mat-sidenav-container class="h-100">
       <mat-sidenav #snav mode="side" [opened]="opened" class="w-280">
-        <!-- Aquí irá el Sidebar -->
-        <div>Sidebar</div>
+        <app-sidebar></app-sidebar>
       </mat-sidenav>
       <mat-sidenav-content>
-        <!-- Aquí irá el Topbar -->
-        <div>Topbar</div>
+        <app-topbar (toggleSidenav)="snav.toggle()"></app-topbar>
         <div class="content container">
           <router-outlet></router-outlet>
         </div>

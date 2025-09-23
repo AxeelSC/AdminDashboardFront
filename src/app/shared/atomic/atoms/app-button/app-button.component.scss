@@ -1,0 +1,11 @@
+button {
+  border-radius: 8px;
+
+  &.variant-outlined {
+    border: 1px solid currentColor;
+  }
+
+  &.variant-text {
+    background: transparent;
+  }
+}
