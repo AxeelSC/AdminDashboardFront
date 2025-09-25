@@ -1,1 +1,45 @@
-<p>login works!</p>
+<div class="login-container">
+  <!-- Space Background -->
+  <app-space-background></app-space-background>
+  <div class="login-box">
+    <!-- Logo -->
+    <div class="logo">
+      <mat-icon>shield</mat-icon>
+    </div>
+
+    <!-- Welcome Text -->
+    <div class="welcome-text">
+      <h1>Bienvenido</h1>
+      <p>Ingresa tus credenciales para continuar</p>
+    </div>
+
+    <!-- Login Form -->
+    <form class="login-form">
+      <!-- Username -->
+      <mat-form-field appearance="outline" class="input-field">
+        <mat-label>Usuario</mat-label>
+        <input matInput type="text" placeholder="tu@email.com" />
+        <mat-icon matPrefix>person_outline</mat-icon>
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field appearance="outline" class="input-field">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" placeholder="••••••••" />
+        <mat-icon matPrefix>lock_outline</mat-icon>
+      </mat-form-field>
+      <!-- Divider -->
+      <mat-divider></mat-divider>
+      <!-- Login Button -->
+      <button mat-flat-button color="primary" class="login-btn" type="submit">
+        Iniciar Sesión
+      </button>
+
+      <!-- Register Link -->
+      <div class="register-link">
+        <span>¿No tienes cuenta?</span>
+        <a href="#">Regístrate aquí</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -7,19 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-button',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatIconModule],
-  template: `
-    <button mat-button [color]="color" [disabled]="disabled" [ngClass]="variant">
-      <mat-icon *ngIf="icon" class="me-2">{{ icon }}</mat-icon>
-      <ng-content></ng-content>
-    </button>
-  `,
-  styles: [
-    `
-      :host {
-        display: inline-block;
-      }
-    `,
-  ],
+  templateUrl: './app-button.component.html',
+  styleUrl: './app-button.component.scss',
 })
 export class AppButtonComponent {
   @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
