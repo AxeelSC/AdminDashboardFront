@@ -16,7 +16,7 @@
   backdrop-filter: blur(12px); // Efecto glassmorphism
   border-radius: 20px;
   padding: 48px 40px;
-  box-shadow: 0 4px 24px rgba(150, 180, 255, 0.2); // Sombra más fuerte
+  box-shadow: 0 4px 24px rgba(150, 180, 255, 0.2);
   animation: fadeIn 0.5s ease;
   position: relative;
   z-index: 1;
@@ -33,39 +33,19 @@
     transform: translateY(0);
   }
 }
-
-// Logo
-.logo {
-  text-align: center;
-  margin-bottom: 32px;
-
-  mat-icon {
-    font-size: 56px;
-    width: 56px;
-    height: 56px;
-    color: #2f80ed;
-  }
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
 }
 
 // Welcome Text
-.welcome-text {
+.welcome-message {
   text-align: center;
   margin-bottom: 40px;
-
-  h1 {
-    font-size: 28px;
-    font-weight: 600;
-    color: #cbd5e1;
-    margin: 0 0 8px 0;
-    letter-spacing: -0.5px;
-  }
-
-  p {
-    font-size: 14px;
-    color: #8e9baa;
-    margin: 0;
-    font-weight: 400;
-  }
+  color: #8e9baa;
 }
 
 // Form
