@@ -1,4 +1,4 @@
-// Estructura genérica de respuesta de tu API
+// Estructura genérica de respuesta de tu API (esto deberia ir en archivos separados pero lo voy a dejar asi por el momento)
 export interface ApiResponse<T> {
   success: boolean;
   message: string;

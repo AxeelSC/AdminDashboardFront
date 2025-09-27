@@ -5,33 +5,35 @@
   <div class="login-box">
     <!-- Icon and brand name -->
     <div class="brand-header">
-      <mat-icon class="brand-icon-large">{{ brandIcon }}</mat-icon>
+      <app-svg-icon
+        [name]="brandIcon"
+        [size]="36"
+        color="#2f80ed"
+        customClass="brand-icon"
+      ></app-svg-icon>
       <h1 class="headline-large">{{ brandName }}</h1>
     </div>
 
     <!-- Welcome Message -->
-    <div class="welcome-message">
-      <h2 class="headline-medium">{{ welcomeMessage }}</h2>
-    </div>
+    <h2 class="headline-medium welcome-message">{{ welcomeMessage }}</h2>
 
     <!-- Login Form -->
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
-      <!-- Username/Email -->
+      <!-- Username -->
       <mat-form-field appearance="outline" class="input-field">
         <mat-label>Usuario</mat-label>
         <input
           matInput
-          type="email"
-          placeholder="tu@email.com"
-          formControlName="email"
+          type="text"
+          placeholder="Tu nombre de usuario"
+          formControlName="username"
           [disabled]="loading"
         />
         <mat-icon matPrefix>person_outline</mat-icon>
 
-        <mat-error *ngIf="form.get('email')?.hasError('required')">
-          El email es requerido
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          El usuario es requerido
         </mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('email')"> Email inválido </mat-error>
       </mat-form-field>
 
       <!-- Password -->
@@ -76,11 +78,11 @@
         <span *ngIf="loading">Cargando...</span>
       </button>
 
-      <!-- Register Link -->
+      <!-- Register Link 
       <div class="register-link" *ngIf="showRegisterLink">
         <span>¿No tienes cuenta?</span>
         <a href="javascript:void(0)" (click)="onRegister()">Regístrate aquí</a>
-      </div>
+      </div> -->
     </form>
   </div>
 </div>

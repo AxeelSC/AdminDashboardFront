@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { SvgBrandIconComponent } from '../../../shared/atomic/atoms/svg-brand-icon/svg-brand-icon.component';
 // Angular Material
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,6 +13,7 @@ import { MatDivider } from '@angular/material/divider';
 
 // Átomo: fondo animado
 import { SpaceBackgroundComponent } from '../../../layout/space-background/space-background.component';
+import { IconName } from '../../../shared/svg-icons/svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -28,27 +29,28 @@ import { SpaceBackgroundComponent } from '../../../layout/space-background/space
     MatCheckboxModule,
     MatDivider,
     SpaceBackgroundComponent,
+    SvgBrandIconComponent,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  @Input() brandIcon: string = 'shield';
+  @Input() brandIcon: IconName = 'star';
   @Input() brandName: string = 'Lumen Dashboard';
   @Input() welcomeMessage: string = 'Welcome back!';
   @Input() buttonLabel = 'Login';
   @Input() loading = false; //For loading purposes
   @Input() showRegisterLink = true; //For private use
 
-  @Output() login = new EventEmitter<{ email: string; password: string }>();
+  @Output() login = new EventEmitter<{ username: string; password: string }>();
   @Output() register = new EventEmitter<void>();
 
   showPassword = signal(false);
 
   form = new FormGroup({
-    email: new FormControl('', {
+    username: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.email],
+      validators: [Validators.required],
     }),
     password: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
   });
@@ -59,10 +61,6 @@ export class LoginComponent {
     } else {
       this.form.markAllAsTouched();
     }
-  }
-
-  onRegister() {
-    this.register.emit();
   }
 
   togglePassword() {
