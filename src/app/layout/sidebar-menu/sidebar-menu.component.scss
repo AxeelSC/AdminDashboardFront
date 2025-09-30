@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  height: 100vh;
+  background: #1a2233;
+  color: #fff;
+}
+
+.mat-nav-list .mat-list-item {
+  color: #fff;
+  font-size: 16px;
+}
+
+.active-link {
+  background: #223355 !important;
+}

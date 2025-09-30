@@ -1,9 +1,23 @@
 import { Routes } from '@angular/router';
-import { LoginPageComponent } from './features/auth/login-page/login-page.component';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { LoginPage } from './features/login/pages/login/login.page';
+import { AuthGuard } from './core/guards/auth.guard';
+import { ShellComponent } from './layout/shell.component';
+import { UserPage } from './features/users/pages/user/user.page';
+import { DashboardPage } from './features/dashboard/pages/dashboard/dashboard.page';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginPageComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '**', redirectTo: '' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginPage },
+
+  {
+    path: 'dashboard',
+    component: ShellComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: DashboardPage },
+      { path: 'users', component: UserPage },
+    ],
+  },
+
+  { path: '**', redirectTo: '/login' },
 ];

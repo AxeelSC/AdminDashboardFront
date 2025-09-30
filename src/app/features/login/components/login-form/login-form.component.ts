@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { SvgBrandIconComponent } from '../../../shared/atomic/atoms/svg-brand-icon/svg-brand-icon.component';
+import { SvgBrandIconComponent } from '../../../../shared/atomic/atoms/svg-brand-icon/svg-brand-icon.component';
 // Angular Material
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,11 +12,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDivider } from '@angular/material/divider';
 
 // Átomo: fondo animado
-import { SpaceBackgroundComponent } from '../../../layout/space-background/space-background.component';
-import { IconName } from '../../../shared/svg-icons/svg-icons';
+import { SpaceBackgroundComponent } from '../../../../layout/space-background/space-background.component';
+import { IconName } from '../../../../shared/svg-icons/svg-icons';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-login-form',
   standalone: true,
   imports: [
     CommonModule,
@@ -31,10 +31,10 @@ import { IconName } from '../../../shared/svg-icons/svg-icons';
     SpaceBackgroundComponent,
     SvgBrandIconComponent,
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  templateUrl: './login-form.component.html',
+  styleUrl: './login-form.component.scss',
 })
-export class LoginComponent {
+export class LoginFormComponent {
   @Input() brandIcon: IconName = 'star';
   @Input() brandName: string = 'Lumen Dashboard';
   @Input() welcomeMessage: string = 'Welcome back!';

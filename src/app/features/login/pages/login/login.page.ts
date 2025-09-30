@@ -1,24 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../core/services/auth.service'; // Ajusta la ruta según dónde tengas AuthService
-import { LoginComponent } from '../login/login.component'; // Importa tu LoginComponent standalone
-import { LoginRequestDto } from '../../../core/api.types';
+import { AuthService } from '../../../../core/services/auth.service'; // Ajusta la ruta según dónde tengas AuthService
+import { LoginFormComponent } from '../../components/login-form/login-form.component'; // Importa tu LoginComponent standalone
+import { LoginRequestDto } from '../../../../core/api.types';
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [LoginComponent],
-  template: `
-    <app-login
-      [brandIcon]="'star'"
-      [brandName]="'Lumen Dashboard'"
-      [welcomeMessage]="'¡Bienvenido de nuevo!'"
-      [buttonLabel]="'Iniciar sesión'"
-      [loading]="loading"
-      (login)="onLogin($event)"
-    ></app-login>
-  `,
+  imports: [LoginFormComponent],
+  templateUrl: './login.page.html',
+  styleUrl: './login.page.scss',
 })
-export class LoginPageComponent {
+export class LoginPage {
   loading = false;
 
   constructor(private authService: AuthService, private router: Router) {}
