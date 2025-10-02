@@ -6,12 +6,20 @@ import { SidebarMenuComponent, MenuItem } from './sidebar-menu/sidebar-menu.comp
 import { AppTopbarComponent } from '../shared/atomic/organisms/app-topbar/app-topbar.component';
 import { CommonModule } from '@angular/common';
 import { MENU_ITEMS } from './sidebar-menu/menu.config';
+import { SpaceBackgroundComponent } from './space-background/space-background.component';
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SidebarMenuComponent, AppTopbarComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    SidebarMenuComponent,
+    AppTopbarComponent,
+    SpaceBackgroundComponent,
+  ],
   template: `
+    <!-- shell.component.html -->
     <div class="shell-layout">
       <app-sidebar-menu [menuItems]="menuItems"></app-sidebar-menu>
       <div class="main-content">
@@ -29,14 +37,18 @@ import { MENU_ITEMS } from './sidebar-menu/menu.config';
       app-sidebar-menu {
         min-width: 220px;
         max-width: 240px;
-        background: #1a2233;
-        color: white;
+        z-index: 2;
+        position: relative;
       }
 
       .main-content {
         flex: 1;
-        padding: 24px;
-        background: #f3f5fa;
+        min-width: 0;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
     `,
   ],
