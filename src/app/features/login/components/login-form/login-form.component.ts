@@ -39,8 +39,8 @@ export class LoginFormComponent {
   @Input() brandName: string = 'Lumen Dashboard';
   @Input() welcomeMessage: string = 'Welcome back!';
   @Input() buttonLabel = 'Login';
-  @Input() loading = false; //For loading purposes
-  @Input() showRegisterLink = true; //For private use
+  @Input() loading = false;
+  @Input() showRegisterLink = true;
 
   @Output() login = new EventEmitter<{ username: string; password: string }>();
   @Output() register = new EventEmitter<void>();

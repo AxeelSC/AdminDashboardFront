@@ -4,12 +4,12 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 // Importa los componentes usados en el template
 import { LoginFormComponent } from './features/login/components/login-form/login-form.component';
-import { ShellComponent } from './layout/shell.component';
-
+import { ShellComponent } from './layout/shell/shell.component';
+import { SpaceBackgroundComponent } from './layout/space-background/space-background.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginFormComponent, ShellComponent],
+  imports: [RouterOutlet, LoginFormComponent, ShellComponent, SpaceBackgroundComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

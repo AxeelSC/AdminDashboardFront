@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginPage } from './features/login/pages/login/login.page';
 import { AuthGuard } from './core/guards/auth.guard';
-import { ShellComponent } from './layout/shell.component';
+import { ShellComponent } from './layout/shell/shell.component';
 import { UserPage } from './features/users/pages/user/user.page';
 import { DashboardPage } from './features/dashboard/pages/dashboard/dashboard.page';
 

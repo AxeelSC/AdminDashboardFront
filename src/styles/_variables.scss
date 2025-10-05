@@ -1,5 +1,48 @@
 $color-text-primary: #cbd5e1;
 $color-text-primary-darker: #8e9baa;
 $color-theme-primary: #2f80ed;
-$color-theme-primary-darker: #202a44;
+$color-theme-primary-darker: #14213d;
 $color-sidebar-active-text: #1a2233;
+
+// Deep Space
+$color-space-bg: #0a0a1a;
+$color-space-gradient-center: #1e2242;
+$color-space-gradient-edge: #23244d;
+$color-space-constellation: #8ba1bb;
+$color-space-star: #dbeafe;
+$color-space-star-glow: #dbeafe;
+$color-space-star-bright: #ffffff;
+
+// Cosmic Dust
+$color-dust-bg: #0d1021;
+$color-dust-gradient-center: #2e3859;
+$color-dust-gradient-edge: #4c4177;
+$color-dust-constellation: #bccad6;
+$color-dust-star: #e3f6ff;
+$color-dust-star-glow: #e3f6ff;
+$color-dust-star-bright: #f7faff;
+
+// Nebula Touch
+$color-nebula-bg: #161c2d;
+$color-nebula-gradient-center: #24427a;
+$color-nebula-gradient-edge: #5d5976;
+$color-nebula-constellation: #b1c6e5;
+$color-nebula-star: #f6c8e3; // Para glow especial o nebulosa suave
+$color-nebula-star-glow: #b1c6e5;
+$color-nebula-star-bright: #fffdfa;
+
+$color-navy-bg: #14213d; // Navy blue principal
+$color-navy-gradient-center: #223162;
+$color-navy-gradient-edge: #0b132b;
+$color-navy-constellation: #89aaff; // Azul claro para líneas
+$color-navy-star: #e0eaff; // Blanco azulado para estrellas
+$color-navy-star-glow: #b6c9f0; // Glow más azulado
+$color-navy-star-bright: #ffffff; // Para destellos muy brillantes
+
+$sidebar-bg: rgba(15, 18, 30, 0.95);
+$sidebar-text: rgba(220, 230, 255, 0.92);
+$sidebar-text-strong: rgba(235, 240, 255, 0.98);
+$sidebar-icon: rgba(200, 220, 255, 0.95);
+$sidebar-outline: rgba(150, 180, 255, 0.18);
+$sidebar-hover-bg: rgba(150, 180, 255, 0.1);
+$sidebar-active-bg: rgba(150, 180, 255, 0.18);

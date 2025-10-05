@@ -1,0 +1,24 @@
+/* app.component.scss */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* capa base */
+  pointer-events: none; /* que no bloquee clics */
+}
+
+/* eleva todo el contenido por encima del fondo */
+:host ::ng-deep body,
+:host ::ng-deep app-root > *:not(.bg-layer) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Asegúrate de no tapar el fondo con el body */
+:host ::ng-deep html,
+:host ::ng-deep body {
+  background: transparent !important;
+}
+:host ::ng-deep .mat-drawer-container,
+:host ::ng-deep .mat-sidenav-container {
+  background: transparent !important;
+}
