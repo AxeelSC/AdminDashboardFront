@@ -21,7 +21,6 @@ export class UsersComponent {
   users = signal<UserSummaryDto[]>([]);
   columns = [
     { key: 'username', label: 'Usuario' },
-    { key: 'email', label: 'Email' },
     { key: 'role', label: 'Rol' },
   ];
 
@@ -51,7 +50,6 @@ export class UsersComponent {
   canDelete = computed(() => this.userRoles().includes('Admin'));
 
   editUser(user: UserDto) {
-    // Aquí puedes navegar o abrir un modal, etc.
     alert('Editar usuario: ' + user.username);
   }
 

@@ -15,11 +15,11 @@ export interface UserSummaryDto {
   id: number;
   username: string;
   email: string;
-  isActive: boolean;
   roles: RoleDto[];
 }
 export interface UserDto extends UserSummaryDto {
   createdAt: string;
+  isActive: boolean;
 }
 
 // Auth
