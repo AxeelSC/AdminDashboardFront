@@ -16,7 +16,7 @@ export class HasRoleDirective {
   }
 
   private render() {
-    const userRoles = this.auth.user?.roles?.map((r) => r.name) ?? [];
+    const userRoles = this.auth.user?.roles ?? [];
     this.vcr.clear();
     if (this.roles.length === 0 || userRoles.some((r) => this.roles.includes(r))) {
       this.vcr.createEmbeddedView(this.tpl);

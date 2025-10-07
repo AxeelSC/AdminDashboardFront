@@ -2,16 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { API_CONFIG } from '../api.config';
 import { ApiResponse, UserDto, UserSummaryDto } from '../api.types';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  list(): Observable<UserSummaryDto[]> {
+  list(includeRoles = true): Observable<UserSummaryDto[]> {
     return this.http
-      .get<ApiResponse<UserSummaryDto[]>>(`${API_CONFIG.baseUrl}/Users`)
-      .pipe(map((r) => r.data ?? []));
+      .get<ApiResponse<UserSummaryDto[]>>(
+        `${API_CONFIG.baseUrl}/Users?includeRoles=${includeRoles}`
+      )
+      .pipe(
+        tap({
+          next: (response) => console.log('API raw response:', response),
+          error: (err) => console.error('API error:', err),
+        }),
+        map((r) => r.data ?? [])
+      );
   }
 
   get(id: number): Observable<UserDto | null> {

@@ -15,7 +15,7 @@ export interface UserSummaryDto {
   id: number;
   username: string;
   email: string;
-  roles: RoleDto[];
+  roles: string[];
 }
 export interface UserDto extends UserSummaryDto {
   createdAt: string;

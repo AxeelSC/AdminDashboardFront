@@ -1,0 +1,19 @@
+<table class="entity-table w-100">
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns">{{ col.label }}</th>
+      <th *ngIf="canEdit || canDelete">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let col of columns">
+        {{ col.key === 'roles' ? row[col.key]?.join(', ') || '' : row[col.key] }}
+      </td>
+      <td *ngIf="canEdit || canDelete">
+        <button *ngIf="canEdit" (click)="edit.emit(row)">Editar</button>
+        <button *ngIf="canDelete" (click)="delete.emit(row)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
