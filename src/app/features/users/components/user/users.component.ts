@@ -6,7 +6,7 @@ import { UsersService } from '../../../../core/services/users.service';
 import { UserSummaryDto } from '../../../../core/api.types';
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-user-component',
   standalone: true,
   imports: [CommonModule, EntityListComponent],
   templateUrl: './users.component.html',

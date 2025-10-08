@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,6 +8,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './section-wrapper.component.html',
   styleUrl: './section-wrapper.component.scss',
 })
-export class SectionWrapperComponent {
-  @Input() title = '';
-}
+export class SectionWrapperComponent {}

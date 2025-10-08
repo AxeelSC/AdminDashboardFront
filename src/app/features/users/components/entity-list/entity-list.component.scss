@@ -1,10 +1,79 @@
-.w-100 {
+:host {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
 }
-table {
-  background: #fff;
+
+.entity-table-container {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 8px;
 }
-th,
-td {
-  min-width: 120px;
+
+/* --- Angular Material Table Styles --- */
+:host ::ng-deep table {
+  width: 100%;
+  min-width: 620px;
+  background: transparent !important;
+  border-radius: 16px !important;
+}
+
+/* Header */
+:host ::ng-deep th.mat-header-cell {
+  background: rgba(52, 63, 87, 0.93) !important;
+  color: #c2cbde !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: none;
+  padding: 14px 20px !important;
+  font-size: 16px;
+}
+
+/* Body cells */
+:host ::ng-deep td.mat-cell {
+  background: rgba(40, 44, 56, 0.96) !important;
+  color: #e6eaf3 !important;
+  font-size: 16px;
+  border: none;
+  padding: 14px 20px !important;
+  vertical-align: middle;
+  box-sizing: border-box;
+  max-width: 320px;
+  word-break: break-all;
+}
+
+/* Hover row */
+:host ::ng-deep tr.mat-row {
+  border-radius: 8px;
+  transition: box-shadow 0.16s, background 0.12s;
+}
+:host ::ng-deep tr.mat-row:hover td.mat-cell {
+  background: rgba(73, 149, 250, 0.11) !important;
+  color: #fff !important;
+}
+
+/* Acción Buttons */
+:host ::ng-deep .action-btn {
+  margin-right: 8px;
+  min-width: 84px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 6px;
+  line-height: 1.1;
+}
+
+/* Table elevation (Material card effect) */
+:host ::ng-deep .mat-elevation-z2 {
+  border-radius: 16px !important;
+  box-shadow: 0 2px 16px rgba(64, 132, 255, 0.09);
+  overflow: hidden;
+}
+
+/* Fila alterna */
+:host ::ng-deep tr.mat-row:nth-child(even) td.mat-cell {
+  background: rgba(60, 67, 90, 0.98) !important;
 }

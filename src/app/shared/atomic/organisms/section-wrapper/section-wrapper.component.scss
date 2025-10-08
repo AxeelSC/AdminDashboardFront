@@ -1,18 +1,19 @@
 @use '../../../../../styles/variables' as *;
 
 :host {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: stretch;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 80px;
+  box-sizing: border-box;
+  background: green !important;
 }
 
 .section-wrapper {
-  width: calc(100% - 150px);
-  height: calc(100% - 150px);
-  margin: auto;
+  width: 100%;
   background: rgba(30, 34, 48, 0.9);
   border-radius: 24px;
   box-shadow: 0 4px 24px $color-theme-primary-darker;
@@ -21,4 +22,7 @@
   flex-direction: column;
   box-sizing: border-box;
   transition: box-shadow 0.2s;
+  min-height: 320px;
+  flex: 1 1 auto;
+  box-sizing: border-box;
 }

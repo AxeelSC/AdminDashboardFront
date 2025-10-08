@@ -3,7 +3,7 @@ import { SectionWrapperComponent } from '../../../../shared/atomic/organisms/sec
 import { UsersComponent } from '../../components/user/users.component';
 
 @Component({
-  selector: 'app-user',
+  selector: 'app-user-page',
   imports: [SectionWrapperComponent, UsersComponent],
   standalone: true,
   templateUrl: './user.page.html',
