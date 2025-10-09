@@ -47,3 +47,42 @@ body {
 
 @import 'styles/typography';
 @import 'styles/variables';
+
+// === ESTILOS CUSTOM PARA TABLA MATERIAL ===
+
+/* Usa selectores específicos y ::ng-deep */
+::ng-deep table.mat-mdc-table {
+  background: #232948 !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+}
+
+::ng-deep th.mat-mdc-header-cell {
+  background: #363e5a !important;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  padding: 16px 18px !important;
+  border: none !important;
+}
+
+::ng-deep td.mat-mdc-cell {
+  background: #232948 !important;
+  color: #b5bee8 !important;
+  font-size: 15px;
+  padding: 16px 18px !important;
+  border: none !important;
+}
+
+::ng-deep tr.mat-mdc-row:hover td.mat-mdc-cell {
+  background: #2740a9 !important;
+  color: #fff !important;
+}
+::ng-deep td,
+::ng-deep th,
+::ng-deep tr,
+::ng-deep table {
+  background: #ffea00 !important;
+  color: #e00000 !important;
+}

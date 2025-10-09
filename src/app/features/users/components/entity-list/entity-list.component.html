@@ -1,17 +1,20 @@
 <div class="entity-table-container">
   <table mat-table [dataSource]="data" class="mat-elevation-z2">
-    <!-- Dynamic columns -->
+    <!-- Columnas dinámicas -->
     @for (col of columns; track col.key) {
     <ng-container [matColumnDef]="col.key">
       <th mat-header-cell *matHeaderCellDef>{{ col.label }}</th>
       <td mat-cell *matCellDef="let row">
-        {{ col.key === 'roles' ? row[col.key]?.join(', ') || '' : row[col.key] }}
+        @if (col.key === 'roles') {
+        {{ row[col.key]?.join(', ') || '' }}
+        } @else {
+        {{ row[col.key] }}
+        }
       </td>
     </ng-container>
     }
 
-    <!-- Actions column -->
-    @if (canEdit || canDelete) {
+    <!-- Columna de acciones -->
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
       <td mat-cell *matCellDef="let row">
@@ -26,9 +29,14 @@
         }
       </td>
     </ng-container>
-    }
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <!-- Header y filas -->
+    <tr mat-header-row *matHeaderRowDef="columnKeys"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnKeys"></tr>
+
+    <!-- Fila "sin datos" (opcional pero recomendable) -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" [attr.colspan]="columnKeys.length">No hay datos para mostrar</td>
+    </tr>
   </table>
 </div>

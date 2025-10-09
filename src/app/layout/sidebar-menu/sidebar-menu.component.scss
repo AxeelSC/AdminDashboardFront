@@ -1,69 +1,99 @@
 @use '../../../styles/variables' as *;
 
+/* --------- BASE CONTENEDOR --------- */
 :host {
   display: block;
   height: 100vh;
-  background: $color-theme-primary-darker !important;
+  background: $color-theme-primary-darker;
 }
 
-:host ::ng-deep .mat-nav-list {
-  padding: 0 !important;
+/* Paleta local para el nav */
+:root {
+  /* color sólido pedido para texto+icono activos */
+  --nav-active-fg: rgb(30, 34, 48); /* #1E2230 */
+  /* fondo suave y perceptible para activo (claro para dar contraste al fg oscuro) */
+  --nav-active-bg: color-mix(in srgb, #ffffff 78%, var(--nav-active-fg) 22%);
+  /* hover: usamos tu primario */
+  --nav-hover-fg: #{$color-theme-primary};
+  --nav-hover-bg: color-mix(in srgb, #{$color-theme-primary} 14%, transparent);
 }
 
-:host ::ng-deep .mat-list-item,
-:host ::ng-deep a[mat-list-item] {
-  color: $color-text-primary !important;
-  font-size: 16px !important;
-  min-height: 48px !important;
-  border-radius: 8px !important;
-  margin: 4px 0 !important;
-  transition: background 0.18s, font-weight 0.18s, color 0.18s !important;
-  align-items: center !important;
-  display: flex !important;
-
-  .mat-icon {
-    color: $color-text-primary !important;
-    font-size: 24px !important;
-    margin-right: 16px !important;
-    min-width: 24px !important;
-    text-align: center !important;
-    vertical-align: middle !important;
-  }
-
-  .mat-line,
-  [matLine] {
-    color: $color-text-primary !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.02em !important;
-    vertical-align: middle !important;
-    line-height: 1.3 !important;
-  }
-
-  &:hover {
-    background: rgba(47, 128, 237, 0.08) !important;
-    color: $color-text-primary !important;
-    font-weight: 500 !important;
-    .mat-icon {
-      color: $color-text-primary !important;
-    }
-    .mat-line,
-    [matLine] {
-      color: $color-text-primary !important;
-    }
-  }
+.app-sidenav .mat-mdc-nav-list {
+  background: transparent;
+  padding: 0;
 }
 
-:host ::ng-deep .active-link,
-:host ::ng-deep a.active-link[mat-list-item] {
-  background: rgba(47, 128, 237, 0.2) !important;
-  color: $color-theme-primary !important;
-  font-weight: 600 !important;
-  .mat-icon {
-    color: $color-theme-primary !important;
+/* ---------- ITEM ---------- */
+.app-sidenav .mat-mdc-list-item,
+.app-sidenav a[mat-list-item] {
+  font-size: 16px;
+  min-height: 48px;
+  border-radius: 10px;
+  margin: 4px 0;
+  display: flex;
+  align-items: center; /* alinea el contenedor del ítem */
+  letter-spacing: 0.02em;
+  transition: background 0.18s ease, color 0.18s ease, font-weight 0.18s ease;
+  --mdc-ripple-fg-opacity: 0.08;
+}
+
+/* Icono alineado al texto (pixel-perfect) */
+.app-sidenav a[mat-list-item] mat-icon[matListIcon] {
+  display: inline-flex; /* para centrar perfecto el glifo */
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 22px; /* tamaño visual */
+  line-height: 24px; /* alinea baseline */
+  margin-right: 14px;
+  color: $color-text-primary;
+}
+
+/* Línea de texto principal alineada al icono */
+.app-sidenav a[mat-list-item] .mat-line,
+.app-sidenav a[mat-list-item] [matLine] {
+  display: inline-flex; /* alinea verticalmente con el icono */
+  align-items: center;
+  color: $color-text-primary;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ---------- HOVER ---------- */
+.app-sidenav a[mat-list-item]:hover {
+  background: var(--nav-hover-bg);
+}
+.app-sidenav a[mat-list-item]:hover,
+.app-sidenav a[mat-list-item]:hover .mat-line,
+.app-sidenav a[mat-list-item]:hover [matLine],
+.app-sidenav a[mat-list-item]:hover mat-icon[matListIcon] {
+  color: var(--nav-hover-fg);
+}
+
+/* ---------- ACTIVO (routerLinkActive="active") ---------- */
+.app-sidenav a[mat-list-item].active {
+  background: var(--nav-active-bg);
+  color: var(--nav-active-fg);
+  font-weight: 600;
+}
+.app-sidenav a[mat-list-item].active .mat-line,
+.app-sidenav a[mat-list-item].active [matLine],
+.app-sidenav a[mat-list-item].active mat-icon[matListIcon] {
+  color: var(--nav-active-fg);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .app-sidenav a[mat-list-item] {
+    min-height: 44px;
+    font-size: 15px;
   }
-  .mat-line,
-  [matLine] {
-    font-weight: 600 !important;
-    color: $color-theme-primary !important;
+  .app-sidenav a[mat-list-item] mat-icon[matListIcon] {
+    margin-right: 12px;
+    font-size: 20px;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
   }
 }

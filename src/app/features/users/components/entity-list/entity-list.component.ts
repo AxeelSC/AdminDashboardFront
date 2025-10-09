@@ -4,7 +4,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'entity-list',
+  selector: 'app-entity-table',
   standalone: true,
   imports: [CommonModule, MatTableModule, MatButtonModule],
   templateUrl: './entity-list.component.html',

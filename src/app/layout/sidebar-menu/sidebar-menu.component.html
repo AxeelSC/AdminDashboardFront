@@ -1,8 +1,16 @@
-<mat-nav-list>
-  @for (item of menuItems; track item) {
-  <a mat-list-item [routerLink]="item.route" routerLinkActive="active-link">
-    <mat-icon matListIcon>{{ item.icon }}</mat-icon>
-    <span matLine>{{ item.label }}</span>
-  </a>
-  }
-</mat-nav-list>
+<nav class="app-sidenav">
+  <mat-nav-list class="app-navlist">
+    @for (item of menuItems; track item) {
+    <a
+      mat-list-item
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      aria-current="page"
+    >
+      <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+      <span matLine>{{ item.label }}</span>
+    </a>
+    }
+  </mat-nav-list>
+</nav>

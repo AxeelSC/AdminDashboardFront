@@ -1,79 +1,100 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 0;
-  min-height: 0;
-  flex: 1 1 auto;
-}
+/* entity-table.component.scss */
 
 .entity-table-container {
+  /* Card look */
+  padding: 12px;
+  background: cyan;
+  border-radius: var(--app-radius);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  /* Scroll si hay muchas filas */
+  overflow: auto;
+  max-height: 70vh;
+}
+
+/* Tabla */
+.entity-table-container .mat-mdc-table {
+  background: transparent; /* el fondo lo pone el contenedor */
+  border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
-  overflow-x: auto;
-  padding-bottom: 8px;
 }
 
-/* --- Angular Material Table Styles --- */
-:host ::ng-deep table {
-  width: 100%;
-  min-width: 620px;
-  background: transparent !important;
-  border-radius: 16px !important;
+/* Header sticky y estilizado */
+.entity-table-container .mat-mdc-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  backdrop-filter: saturate(1.2) blur(3px);
+  /* usa tokens de tema cuando existan; aquí color suave */
+  background: #f4f6fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Header */
-:host ::ng-deep th.mat-header-cell {
-  background: rgba(52, 63, 87, 0.93) !important;
-  color: #c2cbde !important;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  border: none;
-  padding: 14px 20px !important;
-  font-size: 16px;
+.entity-table-container .mat-mdc-header-cell {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-transform: none;
+  padding: 14px 16px;
 }
 
-/* Body cells */
-:host ::ng-deep td.mat-cell {
-  background: rgba(40, 44, 56, 0.96) !important;
-  color: #e6eaf3 !important;
-  font-size: 16px;
-  border: none;
-  padding: 14px 20px !important;
-  vertical-align: middle;
-  box-sizing: border-box;
-  max-width: 320px;
-  word-break: break-all;
+/* Celdas y filas */
+.entity-table-container .mat-mdc-row,
+.entity-table-container .mat-mdc-footer-row {
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
 }
 
-/* Hover row */
-:host ::ng-deep tr.mat-row {
-  border-radius: 8px;
-  transition: box-shadow 0.16s, background 0.12s;
-}
-:host ::ng-deep tr.mat-row:hover td.mat-cell {
-  background: rgba(73, 149, 250, 0.11) !important;
-  color: #fff !important;
+.entity-table-container .mat-mdc-cell,
+.entity-table-container .mat-mdc-footer-cell {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-/* Acción Buttons */
-:host ::ng-deep .action-btn {
-  margin-right: 8px;
-  min-width: 84px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  border-radius: 6px;
-  line-height: 1.1;
+/* Zebra */
+.entity-table-container .mat-mdc-row:nth-child(even) .mat-mdc-cell {
+  background: rgba(0, 0, 0, 0.015);
 }
 
-/* Table elevation (Material card effect) */
-:host ::ng-deep .mat-elevation-z2 {
-  border-radius: 16px !important;
-  box-shadow: 0 2px 16px rgba(64, 132, 255, 0.09);
-  overflow: hidden;
+/* Hover */
+.entity-table-container .mat-mdc-row:hover .mat-mdc-cell {
+  background: rgba(0, 0, 0, 0.04);
 }
 
-/* Fila alterna */
-:host ::ng-deep tr.mat-row:nth-child(even) td.mat-cell {
-  background: rgba(60, 67, 90, 0.98) !important;
+/* Primera y última celda con bordes redondeados visuales */
+.entity-table-container .mat-mdc-row .mat-mdc-cell:first-child,
+.entity-table-container .mat-mdc-header-row .mat-mdc-header-cell:first-child {
+  padding-left: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.entity-table-container .mat-mdc-row .mat-mdc-cell:last-child,
+.entity-table-container .mat-mdc-header-row .mat-mdc-header-cell:last-child {
+  padding-right: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Botones de acción dentro de la celda */
+.entity-table-container .action-btn + .action-btn {
+  margin-left: 8px;
+}
+
+/* Variante “no datos” */
+.entity-table-container tr.mat-row[mat-no-data-row] .mat-mdc-cell,
+.entity-table-container tr.mat-row.mat-mdc-no-data-row .mat-mdc-cell,
+.entity-table-container tr.mat-row *[matNoDataRow] .mat-mdc-cell {
+  text-align: center;
+  padding: 24px !important;
+  color: rgba(0, 0, 0, 0.6);
+  font-style: italic;
+}
+
+/* Responsivo: columnas muy estrechas */
+@media (max-width: 640px) {
+  .entity-table-container .mat-mdc-header-cell,
+  .entity-table-container .mat-mdc-cell {
+    padding: 10px 12px;
+  }
 }
