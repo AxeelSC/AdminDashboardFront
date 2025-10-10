@@ -9,6 +9,17 @@ export interface ApiResponse<T> {
 export interface RoleDto {
   id: number;
   name: string;
+  description: string;
+}
+
+export interface CreateRoleDto {
+  name: string;
+  description: string;
+}
+
+export interface UpdateRoleDto {
+  name: string;
+  description: string;
 }
 
 export interface UserSummaryDto {

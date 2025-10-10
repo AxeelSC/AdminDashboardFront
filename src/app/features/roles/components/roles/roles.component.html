@@ -1,0 +1,8 @@
+<app-entity-table
+  [columns]="columns"
+  [data]="roles()"
+  [canEdit]="canEdit()"
+  [canDelete]="canDelete()"
+  (edit)="editRole($event)"
+  (delete)="deleteRole($event)"
+></app-entity-table>
